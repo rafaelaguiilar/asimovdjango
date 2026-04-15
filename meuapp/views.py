@@ -14,3 +14,41 @@ def home(request):
     else:
         mensagem = "Boa noite!"
     return HttpResponse(f"{mensagem} Agora são {hora_atual} horas.")
+
+def saudacao(request, nome):
+    mensagem = f'Olá, {nome}! Bem vindo ao nosso site.'
+    return HttpResponse(mensagem)
+    
+    
+def produtos(request, id_produto):
+    
+    produtos = {
+        1:'Notbook',
+        2:'Teclado',
+        3:'Mouse',
+        4:'Monitor',
+        5:'Impressora',
+        6:'Scanner',
+        7:'Projetor',
+        8:'Ar condicionado',
+        9:'Forno',
+        10:'Geladeira',
+        11:'Lavadora',
+        12:'Secadora',
+    }
+    
+    produto = produtos.get(id_produto, 'Produto não encontrado')
+    return HttpResponse(f'Detalhes do produto: {produto}')
+
+def calcular(request, num1, num2, operacao):
+    if operacao == 'soma':
+        resultado = num1 + num2
+    elif operacao == 'subtracao':
+        resultado = num1 - num2
+    elif operacao == 'multiplicacao':
+        resultado = num1 * num2
+    elif operacao == 'divisao':
+        resultado = num1 / num2
+    else:
+        resultado = 'Operação inválida'
+    return HttpResponse(f'Resultado: {resultado}')
