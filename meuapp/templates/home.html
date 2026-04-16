@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Olá, Ana!</h1>
+   {% if mensagem == 'Bom dia!' %}
+       <p>Que tal um café?</p>
+   {% elif mensagem == 'Boa tarde!' %}
+       <p>Que tal um chá?</p>
+   {% elif mensagem == 'Boa noite!' %}
+       <p>Que tal um vinho?</p>
+   {% endif %}
+</body>
+</html>

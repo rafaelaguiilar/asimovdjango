@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 # Create your views here.
-def home(request): 
+def mensagem(request): 
     hora_atual = datetime.now().hour
     
     if hora_atual < 12:
@@ -13,7 +13,11 @@ def home(request):
         mensagem = "Boa tarde!"
     else:
         mensagem = "Boa noite!"
-    return HttpResponse(f"{mensagem} Agora são {hora_atual} horas.")
+    return render(request, 'home.html', {'mensagem': mensagem})
+
+def home(request):
+    nome = 'Ana Maria'
+    return render(request, 'home.html', {'nome': nome})
 
 def saudacao(request, nome):
     mensagem = f'Olá, {nome}! Bem vindo ao nosso site.'
@@ -52,3 +56,18 @@ def calcular(request, num1, num2, operacao):
     else:
         resultado = 'Operação inválida'
     return HttpResponse(f'Resultado: {resultado}')
+
+def produtos(request):
+    produtos = [
+        'Notbook',
+        'Teclado',
+        'Mouse',
+        'Monitor',
+        'Impressora',
+        'Scanner',
+        'Projetor',
+        'Ar condicionado',
+        'Forno',
+        'Geladeira',
+    ]
+    return render(request, 'produtos.html', {'produtos': produtos})
