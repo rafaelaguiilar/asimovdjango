@@ -71,3 +71,7 @@ def produtos(request):
         'Geladeira',
     ]
     return render(request, 'produtos.html', {'produtos': produtos})
+
+def index(request):
+    ola= 'Olá, primeira herança template'
+    return render(request, 'index.html', {'ola': ola})
